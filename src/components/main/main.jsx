@@ -1,14 +1,23 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Box, Container, Stack, Typography} from '@mui/material'
 import {colors} from '../../constants/colors';
 import {Category, Videos} from '../';
+import {ApiService} from '../../service/api.service';
 
 const Main = () => {
     const [selectCategory, setSelectCategory] = useState('New');
+    const [videos, setVideos] = useState([]);
 
     const changeCategory = (category) => {
         setSelectCategory(category);
     }
+
+    useEffect(() => {
+        ApiService.fetching(`search`).then(data => {
+            // console.log(data);
+            setVideos(data.items)
+        }).catch(e => console.log(e));
+    }, []);
 
     return (
         <Stack>
