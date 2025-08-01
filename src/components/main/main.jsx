@@ -13,11 +13,11 @@ const Main = () => {
     }
 
     useEffect(() => {
-        ApiService.fetching(`search`).then(data => {
-            // console.log(data);
+        ApiService.fetching(`search?part=snippet$q=${selectCategory}`).then(data => {
+            console.log(data);
             setVideos(data.items)
         }).catch(e => console.log(e));
-    }, []);
+    }, [selectCategory]);
 
     return (
         <Stack>
@@ -27,7 +27,7 @@ const Main = () => {
                     <Typography variant={'h4'} fontWeight={'bold'} mb={2}>
                         {selectCategory} <span style={{color: colors.secondary}}>videos</span>
                     </Typography>
-                    <Videos/>
+                    <Videos videos={videos}/>
                 </Container>
             </Box>
         </Stack>

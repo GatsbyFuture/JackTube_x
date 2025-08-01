@@ -3,3 +3,15 @@
     outline: none;
     width: 350px;
 }
+
+@media screen and (max-width: 900px) {
+    .search-bar {
+        width: 200px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .search-bar {
+        width: 120px
+    }
+}
