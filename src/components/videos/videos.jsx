@@ -1,4 +1,4 @@
-import {Stack, Box, Typography} from '@mui/material';
+import {Stack, Box} from '@mui/material';
 import {VideoCard} from '../';
 import {ChannelCard} from '../';
 import {Loader} from '../';
